@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+
+
+<style>
+.exterior {
+width: 256px;
+height: 256px;
+background-color: grey;
+position: relative;
+}
+
+.anim-interior {
+height: 256px;
+width: 256px;
+box-sizing: border-box;
+border-width: 5px;
+border-style: solid;
+-moz-border-image: -moz-linear-gradient(to bottom right, #d8c466 0%, #a47b31 100%); /* Mozilla Firefox */
+-webkit-border-image: -webkit-linear-gradient(to bottom right, #d8c466 0%, #a47b31 100%); /* Safari 4.0 - 8.0 */
+border-image: linear-gradient(to bottom right, #d8c466 0%, #a47b31 100%);
+border-image-slice: 1;
+position: relative;
+animation: spin_out 0.5s linear 1;
+animation-fill-mode: forwards;
+animation-play-state: block;
+
+/*
+animation-play-state: paused;
+animation: spin 1.5s linear 1;
+*/
+}
+
+div.anim-interior:hover {
+border-width: 7px;
+animation: spin_in 0.5s linear 1;
+animation-fill-mode: forwards;
+animation-iteration-count: 1;
+animation-play-state: running;
+
+
+/*transform: rotate(45deg) scale(0.65);
+border-width: 7px;
+-webkit-animation-play-state: running;
+animation-play-state: running;*/
+
+}
+
+@-moz-keyframes spin_in { 100% { -moz-transform: rotate(45deg); } } /* Mozilla Firefox */
+@-webkit-keyframes spin_in { 100% { -webkit-transform: rotate(45deg); } } /* Safari 4.0 - 8.0 */
+@keyframes spin_in { 100% { transform: rotate(45deg) scale(0.65,0.65);} }
+
+@-moz-keyframes spin_out { 100% { -moz-transform: rotate(0deg); } } /* Mozilla Firefox */
+@-webkit-keyframes spin_out { 100% { -webkit-transform: rotate(0deg); } } /* Safari 4.0 - 8.0 */
+@keyframes spin_out { 
+0% { transform: rotate(45deg) scale(0.65,0.65); }
+100% { transform: rotate(0deg) scale(1.0,1.0);}
+}
+
+/*
+-webkit-animation-play-state: running;
+animation-play-state: running;
+
+animation: scale 1s;
+*/
+
+</style>
+
+<div class="exterior">
+<div class="anim-interior">
+</div>
+</div>
+
+<body>
+</body>
+</html>
